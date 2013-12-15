@@ -1,0 +1,7 @@
+// These levels are in descending order of severity
+X(Fatal)
+X(Error)
+X(Warn)
+X(Info)
+X(Debug)
+X(Trace)
