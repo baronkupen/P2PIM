@@ -12,8 +12,8 @@
 
 namespace Core_Loggers {
 
-	std::map<int, char*> logLevelString = {
-	#define X(a) {a, #a},
+	std::map<LogLevel, const char*> logLevelString = {
+	#define X(a) {Loglevel::a, #a},
 	#include "LogLevel.def"
 	#undef X
 	};
