@@ -23,7 +23,7 @@ namespace Core_DateTime {
 			virtual std::string toShortDate(const time_t &time) const = 0;
 			virtual std::string toLongTime(const StdTime &time) const = 0;
 			virtual std::string toShortTime(const StdTime &time) const = 0;
-			virtual ~IDateTimeFormatter();
+			virtual ~IDateTimeFormatter() {};
 		};
 	}
 }
