@@ -9,7 +9,7 @@
 #define ILOGGER_H_
 
 #include "LogLevel.h"
-#include <String>
+#include <string>
 
 namespace Core_Loggers {
 	namespace Interfaces {
