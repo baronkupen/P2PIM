@@ -7,13 +7,12 @@
 
 #include "StdDateTimeFormatter.h"
 #include "StdTimeConverter.h"
-#include "TimePeriodConverter.h"
 #include <string>
 #include <sstream>
 #include <ctime>
 
 namespace Core_DateTime {
-	StdDateTimeFormatter::StdDateTimeFormatter(StdTimeConverter &timeConverter, TimePeriodConverter &periodConverter) : timeConverter(timeConverter), periodConverter(periodConverter) {}
+	StdDateTimeFormatter::StdDateTimeFormatter(StdTimeConverter &timeConverter) : timeConverter(timeConverter) {}
 
 	std::string StdDateTimeFormatter::padCharactersLeft(const std::string &baseString, const char &padding, const int &finalSize) const {
 		std::string finalString = baseString;
@@ -77,18 +76,16 @@ namespace Core_DateTime {
 		std::string formattedHour = padCharactersLeft(time.hour, TimePadding, TimeSectionSize);
 		std::string formattedMinute = padCharactersLeft(time.minute, TimePadding, TimeSectionSize);
 		std::string formattedSecond = padCharactersLeft(time.second, TimePadding, TimeSectionSize);
-		std::string formattedPeriod = periodConverter.convertStdTimePeriod(time.period);
 
-		std::string formattedTime = formattedHour + ":" + formattedMinute + ":" + formattedSecond + " " + formattedPeriod;
+		std::string formattedTime = formattedHour + ":" + formattedMinute + ":" + formattedSecond + " " + Core_DateTime::toString(time.period);
 		return formattedTime;
 	}
 
 	std::string StdDateTimeFormatter::toShortTime(const StdTime &time) const {
 		std::string formattedHour = padCharactersLeft(time.hour, TimePadding, TimeSectionSize);
 		std::string formattedMinute = padCharactersLeft(time.minute, TimePadding, TimeSectionSize);
-		std::string formattedPeriod = periodConverter.convertStdTimePeriod(time.period);
 
-		std::string formattedTime = formattedHour + ":" + formattedMinute + " " + formattedPeriod;
+		std::string formattedTime = formattedHour + ":" + formattedMinute + " " + Core_DateTime::toString(time.period);
 		return formattedTime;
 	}
 }

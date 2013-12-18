@@ -6,6 +6,7 @@ project(BaronMessengerRepo)
 
 add_subdirectory(BaronMessenger)
 add_subdirectory(Core.Common)
+add_subdirectory(Core.TypeWrappers)
 add_subdirectory(Core.DateTime)
 add_subdirectory(Core.Loggers) 
 

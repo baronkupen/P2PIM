@@ -9,7 +9,6 @@
 #include "Logger.h"
 #include "Date.h"
 #include "StdDateTimeFormatter.h"
-#include "StdTimeConverter.h"
 #include "OutStream.h"
 #include "LogLevel.h"
 #include <iostream>
@@ -17,11 +16,10 @@
 int main(int argc, const char * argv[])
 {
 	Core_DateTime::StdTimeConverter timeConverter;
-	Core_DateTime::TimePeriodConverter periodConverter;
-	auto dateFormatter = Core_DateTime::StdDateTimeFormatter(timeConverter, periodConverter);
+	auto dateFormatter = Core_DateTime::StdDateTimeFormatter(timeConverter);
 	auto date = Core_DateTime::Date();
 
-	auto outstream = Core_Loggers::OutStream(std::cout);
+	auto outstream = Core_TypeWrappers::OutStream(std::cout);
 	auto logger = Core_Loggers::Logger(outstream, date, dateFormatter, true);
 
 	logger.log("This is a test.", Core_Loggers::LogLevel::Debug);

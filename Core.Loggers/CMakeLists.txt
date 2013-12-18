@@ -9,4 +9,4 @@ target_include_directories(Core.Loggers PUBLIC headers)
 
 target_compile_options(Core.Loggers PUBLIC "-std=c++11")
 
-target_link_libraries(Core.Loggers Core.DateTime Core.Common)
+target_link_libraries(Core.Loggers Core.DateTime Core.TypeWrappers Core.Common)

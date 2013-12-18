@@ -9,10 +9,10 @@
 #define ENUMCONVERTER_H_
 
 #define ENUMTOSTRING_DECL(TYPE) \
-const char* enumToString(TYPE v);
+const char* toString(TYPE v);
 
 #define ENUMTOSTRING(TYPE, MAP) \
-const char* enumToString(TYPE v) { \
+const char* toString(TYPE v) { \
 return MAP[v]; \
 }
 

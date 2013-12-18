@@ -9,6 +9,7 @@
 #include "IOutStream.h"
 #include "EnumConverter.h"
 #include <string>
+#include <map>
 
 namespace Core_Loggers {
 
@@ -20,8 +21,8 @@ namespace Core_Loggers {
 
 	ENUMTOSTRING(Core_Loggers::LogLevel, Core_Loggers::logLevelString);
 
-	Interfaces::IOutStream& operator<<(Interfaces::IOutStream& os, const LogLevel& obj) {
-		std::string convertedEnum = enumToString(obj);
+	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj) {
+		std::string convertedEnum = toString(obj);
 		os << convertedEnum;
 		return os;
 	}

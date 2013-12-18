@@ -4,4 +4,4 @@ project(BaronMessenger)
 
 add_executable(BaronMessenger src/BaronMessenger.cpp)
 
-target_link_libraries(BaronMessenger Core.Common Core.DateTime Core.Loggers)
+target_link_libraries(BaronMessenger Core.Common Core.TypeWrappers Core.DateTime Core.Loggers)

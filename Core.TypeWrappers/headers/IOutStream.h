@@ -12,7 +12,7 @@
 #include <string>
 #include <ostream>
 
-namespace Core_Loggers {
+namespace Core_TypeWrappers {
 	namespace Interfaces {
 		class IOutStream {
 			private:

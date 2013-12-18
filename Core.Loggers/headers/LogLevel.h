@@ -9,6 +9,7 @@
 #define LOGLEVEL_H_
 
 #include "IOutStream.h"
+#include "EnumConverter.h"
 #include <map>
 
 namespace Core_Loggers {
@@ -19,7 +20,7 @@ namespace Core_Loggers {
 #undef X
 	};
 
-	Interfaces::IOutStream& operator<<(Interfaces::IOutStream& os, const LogLevel& obj);
+	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj);
 
 	ENUMTOSTRING_DECL(Core_Loggers::LogLevel);
 }

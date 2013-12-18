@@ -8,3 +8,5 @@ add_library(Core.DateTime SHARED ${SRCFILES})
 target_include_directories(Core.DateTime PUBLIC headers)
 
 target_compile_options(Core.DateTime PUBLIC "-std=c++11")
+
+target_link_libraries(Core.DateTime Core.TypeWrappers Core.Common)

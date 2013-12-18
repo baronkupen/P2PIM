@@ -10,7 +10,7 @@
 #include "EnumConverter.h"
 #include <string>
 
-namespace Core_Loggers {
+namespace Core_TypeWrappers {
 	OutStream::OutStream(std::ostream &stream) : stream(stream) {}
 
 	OutStream::~OutStream() {

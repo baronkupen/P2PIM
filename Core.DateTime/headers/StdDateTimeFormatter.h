@@ -13,7 +13,6 @@
 #include "StdTime.h"
 #include "StdTimeConverter.h"
 #include "IDateTimeFormatter.h"
-#include "TimePeriodConverter.h"
 
 namespace Core_DateTime {
 	class StdDateTimeFormatter : public Interfaces::IDateTimeFormatter {
@@ -23,7 +22,6 @@ namespace Core_DateTime {
 		const char TimePadding = '0';
 
 		StdTimeConverter &timeConverter;
-		TimePeriodConverter &periodConverter;
 
 		std::string padCharactersLeft(const int &number, const char &padding, const int &finalSize) const;
 		std::string padCharactersLeft(const std::string &baseString, const char &padding, const int &finalSize) const;
@@ -36,7 +34,7 @@ namespace Core_DateTime {
 		std::string toLongTime(const StdTime &time) const override;
 		std::string toShortTime(const StdTime &time) const override;
 
-		StdDateTimeFormatter(StdTimeConverter &timeConverter, TimePeriodConverter &periodConverter);
+		StdDateTimeFormatter(StdTimeConverter &timeConverter);
 	};
 }
 

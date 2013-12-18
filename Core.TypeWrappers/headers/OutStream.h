@@ -12,7 +12,7 @@
 #include <string>
 #include <ostream>
 
-namespace Core_Loggers {
+namespace Core_TypeWrappers {
 	class OutStream : public Interfaces::IOutStream {
 		private:
 		std::ostream &stream;
