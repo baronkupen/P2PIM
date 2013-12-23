@@ -8,10 +8,14 @@
 #ifndef ILOGMANAGER_H_
 #define ILOGMANAGER_H_
 
+#include "ILogger.h"
+
 namespace Core_Loggers {
 	namespace Interfaces {
-		class ILogManager {
+		class ILogManager : public ILogger {
+			private:
 
+			public:
 		};
 	}
 }

@@ -17,10 +17,8 @@ namespace Core_Loggers {
 
 	//protected
 	void Logger::dispose(const bool &disposing) {
-		if (!disposed)
-		{
-			if (disposing)
-			{
+		if (!disposed) {
+			if (disposing) {
 				// Dispose resources.
 			}
 		}
@@ -40,7 +38,7 @@ namespace Core_Loggers {
 		dispose(true);
 	}
 
-	void Logger::log(const std::string &message, const LogLevel &logLevel) {
+	void Logger::log(const std::string &message, const LogLevel &logLevel) const {
 		auto currentTime = date.now();
 		auto formattedDate = dateTimeFormatter.toShortDate(currentTime);
 		auto formattedTime = dateTimeFormatter.toLongTime(currentTime);

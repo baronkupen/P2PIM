@@ -17,7 +17,7 @@ namespace Core_Loggers {
 			private:
 
 			public:
-			virtual void log(const std::string &message, const LogLevel &logLevel) = 0;
+			virtual void log(const std::string &message, const LogLevel &logLevel) const = 0;
 			virtual ~ILogger() {}
 		};
 	}
