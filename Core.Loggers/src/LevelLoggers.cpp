@@ -19,11 +19,11 @@ namespace Core_Loggers {
 	}
 
 	bool LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
-		std::pair<std::map<LogLevel, std::reference_wrapper<const Interfaces::ILogger>>::iterator, bool> insertStatus = loggers.insert( std::pair<LogLevel, std::reference_wrapper<const Interfaces::ILogger>>(logLevel, std::cref(logger)));
+		std::pair<std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>::iterator, bool> insertStatus = loggers.insert( std::pair<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>(logLevel, std::cref(logger)));
 		return insertStatus.second;
 	}
 
-	LevelLoggers::LevelLoggers(std::map<LogLevel, std::reference_wrapper<const Interfaces::ILogger>> &loggers) : loggers(loggers) {}
+	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> &loggers) : loggers(loggers) {}
 	
 	LevelLoggers::~LevelLoggers() { }
 }

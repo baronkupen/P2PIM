@@ -37,7 +37,7 @@ int main(int argc, const char * argv[])
 	auto logger = Core_Loggers::Logger(outstream, date, dateFormatter);
 	auto fileLogger = Core_Loggers::Logger(filestream, date, dateFormatter);
 
-	auto loggerMap = std::map<Core_Loggers::LogLevel, std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> { 
+	auto loggerMap = std::map<const Core_Loggers::LogLevel, const std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> { 
 		{Core_Loggers::LogLevel::Trace, logger},
 		{Core_Loggers::LogLevel::Debug, fileLogger},
 	};

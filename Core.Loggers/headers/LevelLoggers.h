@@ -16,14 +16,14 @@
 namespace Core_Loggers {
 	class LevelLoggers : public Interfaces::ILevelLoggers {
 		private:
-			std::map<LogLevel, std::reference_wrapper<const Interfaces::ILogger>> &loggers;
+			std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> &loggers;
 
 		public:
 
 			const Interfaces::ILogger& getLevelLogger(const LogLevel &logLevel) const override;
 			bool addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) override;
 
-			explicit LevelLoggers(std::map<LogLevel, std::reference_wrapper<const Interfaces::ILogger>> &loggers);
+			explicit LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> &loggers);
 			LevelLoggers();
 			~LevelLoggers();
 	};
