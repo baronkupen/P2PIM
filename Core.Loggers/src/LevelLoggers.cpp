@@ -10,6 +10,7 @@
 #include "ILogger.h"
 #include "LogLevel.h"
 #include <map>
+#include <functional>
 
 namespace Core_Loggers {
 	

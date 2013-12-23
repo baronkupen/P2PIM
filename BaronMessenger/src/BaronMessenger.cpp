@@ -19,6 +19,7 @@
 #include <map>
 #include <iostream>
 #include <fstream>
+#include <functional>
 
 int main(int argc, const char * argv[])
 {
