@@ -16,11 +16,11 @@
 namespace Core_Loggers {
 	class FileTarget : public Interfaces::ITarget {
 		private: 
-			std::string filename;
+			const std::string &filename;
 
 		public:
 			Core_TypeWrappers::Interfaces::IOutStream grabOutStream() const override;
-			explicit FileTarget(std::string filename);
+			explicit FileTarget(const std::string &filename);
 	};
 }
 

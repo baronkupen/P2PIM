@@ -20,8 +20,8 @@ namespace Core_Loggers {
 	class Logger : public Interfaces::ILogger, public Common::Interfaces::IDisposable {
 	private:
 		Core_TypeWrappers::Interfaces::IOutStream &outStream;
-		Core_DateTime::Interfaces::IDate &date;
-		Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
+		const Core_DateTime::Interfaces::IDate &date;
+		const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
 		bool active;
 		bool disposed;
 	protected:
@@ -29,8 +29,8 @@ namespace Core_Loggers {
 	public:
 		void log(const std::string &message, const LogLevel &logLevel) const override;
 		void dispose() override;
-		Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, Core_DateTime::Interfaces::IDate &date, Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
-		Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, Core_DateTime::Interfaces::IDate &date, Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter, bool active);
+		Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
+		Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter, bool active);
 		~Logger();
 	};
 }

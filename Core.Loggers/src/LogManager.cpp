@@ -34,6 +34,6 @@ namespace Core_Loggers {
 		logger.log(message, logLevel);
 	}
 
-	Core_Loggers::LogManager::LogManager(Interfaces::ILevelLoggers &levelLoggers) : levelLoggers(levelLoggers) {}
+	Core_Loggers::LogManager::LogManager(const Interfaces::ILevelLoggers &levelLoggers) : levelLoggers(levelLoggers) {}
 
 }

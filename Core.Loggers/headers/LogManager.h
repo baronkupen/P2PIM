@@ -17,14 +17,14 @@
 namespace Core_Loggers {
 	class LogManager : public Interfaces::ILogManager, public Common::Interfaces::IDisposable {
 		private:
-			Interfaces::ILevelLoggers &levelLoggers;		
+			const Interfaces::ILevelLoggers &levelLoggers;		
 			bool disposed;
 		protected:
 			void dispose(const bool &disposing);
 		public:
 			void log(const std::string &message, const LogLevel &logLevel) const override;
 			void dispose() override;
-			explicit LogManager(Interfaces::ILevelLoggers &levelLoggers);
+			explicit LogManager(const Interfaces::ILevelLoggers &levelLoggers);
 	};
 }
 

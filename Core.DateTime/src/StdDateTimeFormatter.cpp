@@ -12,7 +12,7 @@
 #include <ctime>
 
 namespace Core_DateTime {
-	StdDateTimeFormatter::StdDateTimeFormatter(StdTimeConverter &timeConverter) : timeConverter(timeConverter) {}
+	StdDateTimeFormatter::StdDateTimeFormatter(const StdTimeConverter &timeConverter) : timeConverter(timeConverter) {}
 
 	std::string StdDateTimeFormatter::padCharactersLeft(const std::string &baseString, const char &padding, const int &finalSize) const {
 		std::string finalString = baseString;

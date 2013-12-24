@@ -21,7 +21,7 @@ namespace Core_Loggers {
 			std::map<const std::string, const std::reference_wrapper<const Interfaces::ITarget>> targets;
 
 		public:
-			bool addTarget(const std::string targetName, const Interfaces::ITarget &target) override;
+			bool addTarget(const std::string &targetName, const Interfaces::ITarget &target) override;
 			explicit LogConfig(std::map<const std::string, const std::reference_wrapper<const Interfaces::ITarget>> targets);
 			LogConfig();
 	};

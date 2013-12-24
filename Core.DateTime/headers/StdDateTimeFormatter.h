@@ -21,7 +21,7 @@ namespace Core_DateTime {
 		const int TimeSectionSize = 2;
 		const char TimePadding = '0';
 
-		StdTimeConverter &timeConverter;
+		const StdTimeConverter &timeConverter;
 
 		std::string padCharactersLeft(const int &number, const char &padding, const int &finalSize) const;
 		std::string padCharactersLeft(const std::string &baseString, const char &padding, const int &finalSize) const;
@@ -34,7 +34,7 @@ namespace Core_DateTime {
 		std::string toLongTime(const StdTime &time) const override;
 		std::string toShortTime(const StdTime &time) const override;
 
-		StdDateTimeFormatter(StdTimeConverter &timeConverter);
+		StdDateTimeFormatter(const StdTimeConverter &timeConverter);
 	};
 }
 

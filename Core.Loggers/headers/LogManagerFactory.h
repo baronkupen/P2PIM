@@ -16,12 +16,12 @@
 namespace Core_Loggers {
 	class LogManagerFactory : public Interfaces:ILogManagerFactory {
 		private:
-			Core_DateTime::Interfaces::IDate &date;
-			Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
+			const Core_DateTime::Interfaces::IDate &date;
+			const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
 
 		public:
 			ILogManager CreateLogManager(const Interfaces::ILogConfig &config) const;
-			LogManagerFactory(Core_DateTime::Interfaces::IDate &date, Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
+			LogManagerFactory(const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
 	};
 }
 

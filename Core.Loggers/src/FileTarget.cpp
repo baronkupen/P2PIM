@@ -20,5 +20,5 @@ namespace Core_Loggers {
 		return output;
 	}
 	
-	FileTarget::FileTarget(std::string filename) : filename(filename) {}
+	FileTarget::FileTarget(const std::string &filename) : filename(filename) {}
 }
