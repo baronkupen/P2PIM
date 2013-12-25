@@ -18,9 +18,9 @@ namespace Core_TypeWrappers {
 		std::ostream &stream;
 
 		public:
-		IOutStream& operator<<(const char* message) override;
-		IOutStream& operator<<(const std::string &message) override;
-		IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) override;
+		const IOutStream& operator<<(const char* message) const override;
+		const IOutStream& operator<<(const std::string &message) const override;
+		const IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const override;
 		explicit OutStream(std::ostream &stream);
 		~OutStream();
 	};

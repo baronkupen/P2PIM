@@ -21,7 +21,7 @@ namespace Core_DateTime {
 
 	ENUMTOSTRING(Core_DateTime::StdTimePeriod, Core_DateTime::timePeriodString);
 
-	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const StdTimePeriod& obj) {
+	const Core_TypeWrappers::Interfaces::IOutStream& operator<<(const Core_TypeWrappers::Interfaces::IOutStream& os, const StdTimePeriod& obj) {
 		std::string convertedEnum = toString(obj);
 		os << convertedEnum;
 		return os;

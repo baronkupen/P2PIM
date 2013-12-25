@@ -21,7 +21,7 @@ namespace Core_Loggers {
 
 	ENUMTOSTRING(Core_Loggers::LogLevel, Core_Loggers::logLevelString);
 
-	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj) {
+	const Core_TypeWrappers::Interfaces::IOutStream& operator<<(const Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj) {
 		std::string convertedEnum = toString(obj);
 		os << convertedEnum;
 		return os;

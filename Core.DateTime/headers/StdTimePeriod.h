@@ -19,7 +19,7 @@ namespace Core_DateTime {
 #undef X
 	};
 
-	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const StdTimePeriod& obj);
+	const Core_TypeWrappers::Interfaces::IOutStream& operator<<(const Core_TypeWrappers::Interfaces::IOutStream& os, const StdTimePeriod& obj);
 
 	ENUMTOSTRING_DECL(Core_DateTime::StdTimePeriod);
 }

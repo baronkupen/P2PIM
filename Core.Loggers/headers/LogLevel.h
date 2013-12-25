@@ -20,7 +20,7 @@ namespace Core_Loggers {
 #undef X
 	};
 
-	Core_TypeWrappers::Interfaces::IOutStream& operator<<(Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj);
+	const Core_TypeWrappers::Interfaces::IOutStream& operator<<(const Core_TypeWrappers::Interfaces::IOutStream& os, const LogLevel& obj);
 
 	ENUMTOSTRING_DECL(Core_Loggers::LogLevel);
 }

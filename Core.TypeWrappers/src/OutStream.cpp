@@ -17,19 +17,19 @@ namespace Core_TypeWrappers {
 		stream.flush();
 	}
 
-	Interfaces::IOutStream& OutStream::operator<<(const char* message) {
+	const Interfaces::IOutStream& OutStream::operator<<(const char* message) const {
 		stream << message;
 
 		return *this;
 	}
 
-	Interfaces::IOutStream& OutStream::operator<<(const std::string &message) {
+	const Interfaces::IOutStream& OutStream::operator<<(const std::string &message) const {
 		stream << message;
 
 		return *this;
 	}
 
-	Interfaces::IOutStream& OutStream::operator<<(std::ostream& (*func)(std::ostream&)) {
+	const Interfaces::IOutStream& OutStream::operator<<(std::ostream& (*func)(std::ostream&)) const {
 		func(stream);
 
 		return *this;
