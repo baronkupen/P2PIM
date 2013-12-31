@@ -17,7 +17,7 @@ namespace Core_Loggers {
 			private:
 
 			public:
-				virtual ILogManager CreateLogManager(const ILogConfig &config) const = 0;
+				virtual const ILogManager* const CreateLogManager(const ILogConfig &config) const = 0;
 				virtual ~ILogManagerFactory() {}
 		};
 	}

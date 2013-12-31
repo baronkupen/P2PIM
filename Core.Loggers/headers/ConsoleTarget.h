@@ -18,7 +18,7 @@ namespace Core_Loggers {
 		private:
 			std::ostream &outstream;
 		public:
-			Core_TypeWrappers::Interfaces::IOutStream grabOutStream() const override;
+			const Core_TypeWrappers::Interfaces::IOutStream* const grabOutStream() const override;
 			explicit ConsoleTarget(std::ostream &outstream);
 	};
 }

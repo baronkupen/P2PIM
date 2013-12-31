@@ -23,7 +23,9 @@ namespace Core_Loggers {
 		return insertStatus.second;
 	}
 
-	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> &loggers) : loggers(loggers) {}
+	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> loggers) : loggers(loggers) {}
 	
-	LevelLoggers::~LevelLoggers() { }
+	LevelLoggers::LevelLoggers() {}
+	
+	LevelLoggers::~LevelLoggers() {}
 }

@@ -26,9 +26,9 @@ namespace Core_Loggers {
 	}
 
 	//public
-	Logger::Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter) : outStream(outStream), date(date), dateTimeFormatter(dateTimeFormatter), active(true), disposed(false) { }
+	Logger::Logger(const Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter) : outStream(outStream), date(date), dateTimeFormatter(dateTimeFormatter), active(true), disposed(false) { }
 
-	Logger::Logger(Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter, bool active) : outStream(outStream), date(date), dateTimeFormatter(dateTimeFormatter), active(active), disposed(false) { }
+	Logger::Logger(const Core_TypeWrappers::Interfaces::IOutStream &outStream, const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter, bool active) : outStream(outStream), date(date), dateTimeFormatter(dateTimeFormatter), active(active), disposed(false) { }
 
 	Logger::~Logger() {
 		dispose(false);

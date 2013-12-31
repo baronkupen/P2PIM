@@ -12,8 +12,8 @@
 #include <ostream>
 
 namespace Core_Loggers {
-	Core_TypeWrappers::Interfaces::IOutStream ConsoleTarget::grabOutStream() const {
-		auto output = Core_TypeWrappers::OutStream(outstream);
+	const Core_TypeWrappers::Interfaces::IOutStream* const ConsoleTarget::grabOutStream() const {
+		const Core_TypeWrappers::Interfaces::IOutStream* const output = new Core_TypeWrappers::OutStream(outstream);
 
 		return output;
 	}

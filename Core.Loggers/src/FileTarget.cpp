@@ -13,9 +13,9 @@
 #include <string>
 
 namespace Core_Loggers {
-	Core_TypeWrappers::Interfaces::IOutStream FileTarget::grabOutStream() const {
-		auto fileOutput = std::ofstream(filename);
-		auto output = Core_TypeWrappers::OutStream(fileOutput);
+	const Core_TypeWrappers::Interfaces::IOutStream* const FileTarget::grabOutStream() const {
+		std::ofstream* const fileOutput = new std::ofstream(filename);
+		const Core_TypeWrappers::Interfaces::IOutStream* const output = new Core_TypeWrappers::OutStream(*fileOutput);
 
 		return output;
 	}

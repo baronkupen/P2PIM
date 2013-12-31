@@ -20,7 +20,7 @@ namespace Core_Loggers {
 			const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
 
 		public:
-			ILogManager CreateLogManager(const Interfaces::ILogConfig &config) const;
+			const Interfaces::ILogManager* const  CreateLogManager(const Interfaces::ILogConfig &config) const override;
 			LogManagerFactory(const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
 	};
 }
