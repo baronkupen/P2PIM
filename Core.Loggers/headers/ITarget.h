@@ -17,7 +17,7 @@ namespace Core_Loggers {
 			private:
 
 			public:
-				virtual const Core_TypeWrappers::Interfaces::IOutStream* const grabOutStream() const = 0;
+				virtual const Core_TypeWrappers::Interfaces::IOutStream* const grabOutStream() = 0;
 				virtual ~ITarget() {}
 		};
 	}

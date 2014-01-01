@@ -14,13 +14,13 @@
 #include "IDateTimeFormatter.h"
 
 namespace Core_Loggers {
-	class LogManagerFactory : public Interfaces:ILogManagerFactory {
+	class LogManagerFactory : public Interfaces::ILogManagerFactory {
 		private:
 			const Core_DateTime::Interfaces::IDate &date;
 			const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
 
 		public:
-			const Interfaces::ILogManager* const  CreateLogManager(const Interfaces::ILogConfig &config) const override;
+			const Interfaces::ILogManager* const CreateLogManager(const Interfaces::ILogConfig &config) const override;
 			LogManagerFactory(const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
 	};
 }

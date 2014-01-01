@@ -9,16 +9,17 @@
 #ifndef CONSOLETARGET_H_
 #define CONSOLETARGET_H_
 
-#include "ITarget.h"
+#include "Target.h"
 #include "IOutStream.h"
 #include <ostream>
 
 namespace Core_Loggers {
-	class ConsoleTarget : public Interfaces::ITarget {
+	class ConsoleTarget : public Target {
 		private:
 			std::ostream &outstream;
+
 		public:
-			const Core_TypeWrappers::Interfaces::IOutStream* const grabOutStream() const override;
+			const Core_TypeWrappers::Interfaces::IOutStream* const grabOutStream() override;
 			explicit ConsoleTarget(std::ostream &outstream);
 	};
 }
