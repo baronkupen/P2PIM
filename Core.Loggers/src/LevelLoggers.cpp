@@ -15,17 +15,20 @@
 namespace Core_Loggers {
 	
 	const Interfaces::ILogger& LevelLoggers::getLevelLogger(const LogLevel &logLevel) const {
-		return loggers.at(logLevel);
+		return loggers->at(logLevel);
 	}
 
 	bool LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
-		std::pair<std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>::iterator, bool> insertStatus = loggers.insert( std::pair<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>(logLevel, std::cref(logger)));
+		std::pair<std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>::iterator, bool> insertStatus = loggers->insert( std::pair<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>(logLevel, std::cref(logger)));
 		return insertStatus.second;
 	}
 
-	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>> loggers) : loggers(loggers) {}
+	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>* const loggers) : loggers(loggers) {}
 	
-	LevelLoggers::LevelLoggers() {}
+	LevelLoggers::LevelLoggers() : loggers(new std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>) {}
 	
-	LevelLoggers::~LevelLoggers() {}
+	LevelLoggers::~LevelLoggers() {
+		delete loggers;
+		loggers = nullptr;
+	}
 }
