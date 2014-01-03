@@ -12,6 +12,7 @@
 #include "ILogManager.h"
 #include "IDate.h"
 #include "IDateTimeFormatter.h"
+#include "ITargetConfig.h"
 
 namespace Core_Loggers {
 	class LogManagerFactory : public Interfaces::ILogManagerFactory {
@@ -20,7 +21,7 @@ namespace Core_Loggers {
 			const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter;
 
 		public:
-			const Interfaces::ILogManager* const CreateLogManager(const Interfaces::ILogConfig &config) const override;
+			const Interfaces::ILogManager* const CreateLogManager(const Interfaces::ITargetConfig &config) const override;
 			LogManagerFactory(const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter);
 	};
 }

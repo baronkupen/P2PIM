@@ -18,11 +18,11 @@
 namespace Core_Loggers {
 	class NamedTargets : public Interfaces::INamedTargets {
 		private:
-			std::map<const Interfaces::ITargetName, const std::reference_wrapper<const Interfaces::ITarget>>* const targets;
+			std::map<const std::reference_wrapper<const Interfaces::ITargetName>, const std::reference_wrapper<const Interfaces::ITarget>>* const targets;
 
 		public:
-			bool addTarget(const ITargetName &targetName, const Interfaces::ITarget &target) override;
-			NamedTargets(std::map<const Interfaces::ITargetName, const std::reference_wrapper<const Interfaces::ITarget>>* targets);
+			bool addTarget(const Interfaces::ITargetName &targetName, const Interfaces::ITarget &target) override;
+			NamedTargets(std::map<const std::reference_wrapper<const Interfaces::ITargetName>, const std::reference_wrapper<const Interfaces::ITarget>>* targets);
 			NamedTargets();
 			~NamedTargets();
 	};

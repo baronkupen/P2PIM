@@ -18,7 +18,6 @@ namespace Core_Loggers {
 			const std::string &name; 
 
 		public:
-			
 			TargetName(const std::string &name);
 	};
 }

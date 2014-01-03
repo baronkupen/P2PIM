@@ -9,7 +9,7 @@
 #define ILOGMANAGERFACTORY_H_
 
 #include "ILogManager.h"
-#include "ILogConfig.h"
+#include "ITargetConfig.h"
 
 namespace Core_Loggers {
 	namespace Interfaces {
@@ -17,7 +17,7 @@ namespace Core_Loggers {
 			private:
 
 			public:
-				virtual const ILogManager* const CreateLogManager(const ILogConfig &config) const = 0;
+				virtual const ILogManager* const CreateLogManager(const ITargetConfig &config) const = 0;
 				virtual ~ILogManagerFactory() {}
 		};
 	}

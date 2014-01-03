@@ -29,6 +29,5 @@ namespace Core_Loggers {
 	
 	LevelLoggers::~LevelLoggers() {
 		delete loggers;
-		loggers = nullptr;
 	}
 }

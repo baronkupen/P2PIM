@@ -12,7 +12,7 @@
 namespace Core_Loggers {
 	namespace Interfaces {
 		class ITargetName {
-			virtual ~TargetName() {}
+			virtual ~ITargetName() {}
 		};
 	}
 }
