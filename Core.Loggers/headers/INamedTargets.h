@@ -18,7 +18,7 @@ namespace Core_Loggers {
 			private:
 				
 			public:
-				virtual bool addTarget(const ITargetName &targetName, const Interfaces::ITarget &target) = 0;
+				virtual bool addTarget(const ITargetName &targetName, const ITarget &target) = 0;
 				virtual ~INamedTargets() {} 
 		};
 	}

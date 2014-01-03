@@ -18,6 +18,11 @@ namespace Core_Loggers {
 			const std::string &name; 
 
 		public:
+			std::string toString() const override;
+			bool operator!=(const TargetName &other) const override;
+			bool operator==(const TargetName &other) const override;
+			bool operator<(const TargetName &other) const override;
+
 			TargetName(const std::string &name);
 	};
 }

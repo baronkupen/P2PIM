@@ -12,6 +12,7 @@
 #include "INamedTargets.h"
 #include "ITargetName.h"
 #include "ITarget.h"
+#include "CommonExtensions.h"
 #include <map>
 #include <functional>
 
