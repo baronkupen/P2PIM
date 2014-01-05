@@ -3,7 +3,7 @@
 // Author      : _baron
 // Version     :
 // Copyright   : Have at it
-// Description : Hello World in C++, Ansi-style
+// Description : Test main for baronmessenger
 //============================================================================
 
 #include "Logger.h"
@@ -29,15 +29,14 @@ int main(int argc, const char * argv[])
 
 	auto outstream = Core_TypeWrappers::OutStream(std::cout);
 	
-	std::ofstream outFile;
-	outFile.open("log.txt");
+	std::ofstream outFile = std::ofstream("log.txt");
 
 	auto filestream = Core_TypeWrappers::OutStream(outFile);
 
 	auto logger = Core_Loggers::Logger(outstream, date, dateFormatter);
 	auto fileLogger = Core_Loggers::Logger(filestream, date, dateFormatter);
 
-	auto loggerMap = std::map<const Core_Loggers::LogLevel, const std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> { 
+	auto loggerMap = new std::map<const Core_Loggers::LogLevel, const std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> { 
 		{Core_Loggers::LogLevel::Trace, logger},
 		{Core_Loggers::LogLevel::Debug, fileLogger},
 	};
@@ -45,12 +44,8 @@ int main(int argc, const char * argv[])
 	auto levelLoggers = Core_Loggers::LevelLoggers(loggerMap);
 	auto logManager = Core_Loggers::LogManager(levelLoggers);
 
-
 	logManager.log("This is a test.", Core_Loggers::LogLevel::Debug);
 	logManager.log("This is another test.", Core_Loggers::LogLevel::Trace);
-
-	outFile.flush();
-	outFile.close();
 
      return 0;
 }
