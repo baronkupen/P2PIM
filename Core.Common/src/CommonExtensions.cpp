@@ -9,7 +9,9 @@
 #include "CommonExtensions.h"
 #include <functional>
 
-template<class T>
-bool operator<(const std::reference_wrapper<T> &a, const std::reference_wrapper<T> &b) {
-	return a < b;
+namespace std {
+	template<class T>
+	bool operator<(const reference_wrapper<T> &a, const reference_wrapper<T> &b) {
+		return a < b;
+	}
 }

@@ -14,11 +14,14 @@
 namespace Core_Loggers {
 	namespace Interfaces {
 		class ITargetName {
-			virtual std::string toString() const = 0; 
-			virtual bool operator!=(const ITargetName &other) const = 0;
-			virtual bool operator==(const ITargetName &other) const = 0;
-			virtual bool operator<(const ITargetName &other) const = 0;
-			virtual ~ITargetName() {}
+			private:
+
+			public:
+				virtual std::string toString() const = 0; 
+				virtual bool operator!=(const ITargetName &other) const = 0;
+				virtual bool operator==(const ITargetName &other) const = 0;
+				virtual bool operator<(const ITargetName &other) const = 0;
+				virtual ~ITargetName() {}
 		};
 	}
 }
