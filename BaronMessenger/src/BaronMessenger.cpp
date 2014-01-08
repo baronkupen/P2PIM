@@ -29,7 +29,8 @@ int main(int argc, const char * argv[])
 
 	auto outstream = Core_TypeWrappers::OutStream(std::cout);
 	
-	std::ofstream outFile = std::ofstream("log.txt");
+	std::ofstream outFile;
+	outFile.open("log.txt");
 
 	auto filestream = Core_TypeWrappers::OutStream(outFile);
 
