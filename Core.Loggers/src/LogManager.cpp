@@ -29,9 +29,13 @@ namespace Core_Loggers {
 	}
 
 	void Core_Loggers::LogManager::log(const std::string &message, const LogLevel &logLevel) const {
-		auto& logger = levelLoggers.getLevelLogger(logLevel);
+		auto& loggers = levelLoggers.getLevelLoggers(logLevel);
 
-		logger.log(message, logLevel);
+		for(auto &logger : loggers) {
+			auto &loggerRef = logger.get();
+
+			loggerRef.log(message, logLevel);
+		}
 	}
 
 	Core_Loggers::LogManager::LogManager(const Interfaces::ILevelLoggers &levelLoggers) : levelLoggers(levelLoggers) {}

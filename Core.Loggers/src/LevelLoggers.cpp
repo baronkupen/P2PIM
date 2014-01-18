@@ -9,23 +9,25 @@
 #include "ILevelLoggers.h"
 #include "ILogger.h"
 #include "LogLevel.h"
+#include <vector>
 #include <map>
 #include <functional>
 
 namespace Core_Loggers {
 	
-	const Interfaces::ILogger& LevelLoggers::getLevelLogger(const LogLevel &logLevel) const {
+	const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& LevelLoggers::getLevelLoggers(const LogLevel &logLevel) const {
 		return loggers->at(logLevel);
 	}
 
-	bool LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
-		std::pair<std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>::iterator, bool> insertStatus = loggers->insert( std::pair<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>(logLevel, std::cref(logger)));
-		return insertStatus.second;
+	void LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
+		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>::iterator, bool> emplaceStatus = loggers->emplace(logLevel);
+		
+		emplaceStatus.first->second.push_back(std::cref(logger));
 	}
 
-	LevelLoggers::LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>* const loggers) : loggers(loggers) {}
+	LevelLoggers::LevelLoggers(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers) : loggers(loggers) {}
 	
-	LevelLoggers::LevelLoggers() : loggers(new std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>) {}
+	LevelLoggers::LevelLoggers() : loggers(new std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>) {}
 	
 	LevelLoggers::~LevelLoggers() {
 		delete loggers;

@@ -10,6 +10,8 @@
 
 #include "LogLevel.h"
 #include "ILogger.h"
+#include <vector>
+#include <functional>
 
 namespace Core_Loggers {
 	namespace Interfaces {
@@ -17,8 +19,8 @@ namespace Core_Loggers {
 			private:
 
 			public:
-				virtual const ILogger& getLevelLogger(const LogLevel &logLevel) const = 0;
-				virtual bool addLevelLogger(const LogLevel &logLevel, const ILogger &logger) = 0;
+				virtual const std::vector<std::reference_wrapper<const ILogger>>& getLevelLoggers(const LogLevel &logLevel) const = 0;
+				virtual void addLevelLogger(const LogLevel &logLevel, const ILogger &logger) = 0;
 				~ILevelLoggers() {}
 		};
 	}

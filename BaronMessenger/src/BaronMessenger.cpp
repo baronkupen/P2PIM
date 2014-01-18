@@ -12,10 +12,12 @@
 #include "StdTimeConverter.h"
 #include "OutStream.h"
 #include "LogLevel.h"
+#include "ILogger.h"
 #include "ILevelLoggers.h"
 #include "LevelLoggers.h"
 #include "ILogManager.h"
 #include "LogManager.h"
+#include <vector>
 #include <map>
 #include <iostream>
 #include <fstream>
@@ -34,12 +36,18 @@ int main(int argc, const char * argv[])
 
 	auto filestream = Core_TypeWrappers::OutStream(outFile);
 
-	auto logger = Core_Loggers::Logger(outstream, date, dateFormatter);
-	auto fileLogger = Core_Loggers::Logger(filestream, date, dateFormatter);
+	Core_Loggers::Interfaces::ILogger* logger = new Core_Loggers::Logger(outstream, date, dateFormatter);
+	Core_Loggers::Interfaces::ILogger* fileLogger = new Core_Loggers::Logger(filestream, date, dateFormatter);
 
-	auto loggerMap = new std::map<const Core_Loggers::LogLevel, const std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> { 
-		{Core_Loggers::LogLevel::Trace, logger},
-		{Core_Loggers::LogLevel::Debug, fileLogger},
+	auto traceLoggers = std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>();
+	traceLoggers.push_back(std::cref(*logger));
+
+	auto debugLoggers = std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>();
+	debugLoggers.push_back(std::cref(*fileLogger));
+
+	auto loggerMap = new std::map<const Core_Loggers::LogLevel, std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>> { 
+		{Core_Loggers::LogLevel::Trace, traceLoggers },
+		{Core_Loggers::LogLevel::Debug, debugLoggers },
 	};
 
 	auto levelLoggers = Core_Loggers::LevelLoggers(loggerMap);

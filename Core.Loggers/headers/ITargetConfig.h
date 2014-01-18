@@ -19,7 +19,7 @@ namespace Core_Loggers {
 				
 
 			public:	
-				virtual bool appendConfig(const LogLevel logLevel, const ITargetName &targetName) = 0;
+				virtual void appendConfig(const LogLevel logLevel, const ITargetName &targetName) = 0;
 		};
 	}
 }

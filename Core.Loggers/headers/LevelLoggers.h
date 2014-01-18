@@ -11,20 +11,21 @@
 #include "ILevelLoggers.h"
 #include "ILogger.h"
 #include "LogLevel.h"
+#include <vector>
 #include <map>
 #include <functional>
 
 namespace Core_Loggers {
 	class LevelLoggers : public Interfaces::ILevelLoggers {
 		private:
-			std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>* const loggers;
+			std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers;
 
 		public:
 
-			const Interfaces::ILogger& getLevelLogger(const LogLevel &logLevel) const override;
-			bool addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) override;
+			const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& getLevelLoggers(const LogLevel &logLevel) const override;
+			void addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) override;
 
-			explicit LevelLoggers(std::map<const LogLevel, const std::reference_wrapper<const Interfaces::ILogger>>* const  loggers);
+			explicit LevelLoggers(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers);
 			LevelLoggers();
 			~LevelLoggers();
 	};
