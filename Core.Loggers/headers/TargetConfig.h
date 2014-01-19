@@ -22,7 +22,7 @@ namespace Core_Loggers {
 			std::map<const LogLevel, std::vector<std::reference_wrapper< const Interfaces::ITargetName>>>* const config;
 
 		public:
-			void appendConfig(const LogLevel logLevel, const Interfaces::ITargetName &targetName) override;
+			void appendConfig(const LogLevel &logLevel, const Interfaces::ITargetName &targetName) override;
 			TargetConfig(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ITargetName>>>* config);
 			TargetConfig();
 			~TargetConfig();
