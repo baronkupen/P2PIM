@@ -23,7 +23,7 @@ namespace Core_Loggers {
 	}
 
 	void TargetConfig::appendConfig(const LogLevel &logLevel, const Interfaces::ITargetName &targetName) {
-		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ITargetName>>>::iterator, bool> emplaceStatus = config->emplace(logLevel);
+		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ITargetName>>>::iterator, bool> emplaceStatus = config->emplace(logLevel, std::vector<std::reference_wrapper<const Interfaces::ITargetName>>());
 
 		emplaceStatus.first->second.push_back(std::cref(targetName));
 	}

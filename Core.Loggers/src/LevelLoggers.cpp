@@ -20,7 +20,7 @@ namespace Core_Loggers {
 	}
 
 	void LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
-		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>::iterator, bool> emplaceStatus = loggers->emplace(logLevel);
+		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>::iterator, bool> emplaceStatus = loggers->emplace(logLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>());
 		
 		emplaceStatus.first->second.push_back(std::cref(logger));
 	}
