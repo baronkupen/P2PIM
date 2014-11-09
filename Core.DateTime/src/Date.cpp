@@ -9,7 +9,7 @@
 #include <ctime>
 
 namespace Core_DateTime {
-	time_t Date::now() const{
+	time_t Date::now() const {
 		return time(0);
 	}
 }
