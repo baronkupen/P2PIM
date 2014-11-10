@@ -16,7 +16,7 @@ namespace Core_DateTime {
 		private:
 
 		public:
-		time_t now() const override;
+			time_t now() const override;
 	};
 }
 

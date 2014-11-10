@@ -16,8 +16,8 @@ namespace Core_DateTime {
 			private:
 
 			public:
-			virtual time_t now() const = 0;
-			virtual ~IDate() {}
+				virtual time_t now() const = 0;
+				virtual ~IDate() {}
 		};
 	}
 }
