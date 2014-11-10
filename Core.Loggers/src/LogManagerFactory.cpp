@@ -16,7 +16,7 @@ namespace Core_Loggers {
 
 	LogManagerFactory::LogManagerFactory(const Core_DateTime::Interfaces::IDate &date, const Core_DateTime::Interfaces::IDateTimeFormatter &dateTimeFormatter) : date(date), dateTimeFormatter(dateTimeFormatter) {} 
 	
-	const Interfaces::ILogManager* const LogManagerFactory::CreateLogManager(const Interfaces::ITargetConfig &config) const {
+	const Interfaces::ILogManager* const LogManagerFactory::create(const Interfaces::ITargetConfig &config) const {
 		return nullptr;	
 	}
 }

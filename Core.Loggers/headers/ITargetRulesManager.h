@@ -18,7 +18,7 @@ namespace Core_Loggers {
 				
 
 			public:
-				virtual const ITargetConfig* const CreateTargetConfig() const = 0; 	
+				virtual const ITargetConfig* const createConfig() const = 0; 	
 				~ITargetRulesManager() {}
 		};
 	}

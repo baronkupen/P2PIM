@@ -15,11 +15,11 @@
 
 namespace Core_Loggers {
 	
-	const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& LevelLoggers::getLevelLoggers(const LogLevel &logLevel) const {
+	const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& LevelLoggers::getLoggers(const LogLevel &logLevel) const {
 		return loggers->at(logLevel);
 	}
 
-	void LevelLoggers::addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
+	void LevelLoggers::add(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
 		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>::iterator, bool> emplaceStatus = loggers->emplace(logLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>());
 		
 		emplaceStatus.first->second.push_back(std::cref(logger));

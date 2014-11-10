@@ -22,8 +22,8 @@ namespace Core_Loggers {
 
 		public:
 
-			const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& getLevelLoggers(const LogLevel &logLevel) const override;
-			void addLevelLogger(const LogLevel &logLevel, const Interfaces::ILogger &logger) override;
+			const std::vector<std::reference_wrapper<const Interfaces::ILogger>>& getLoggers(const LogLevel &logLevel) const override;
+			void add(const LogLevel &logLevel, const Interfaces::ILogger &logger) override;
 
 			explicit LevelLoggers(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers);
 			LevelLoggers();

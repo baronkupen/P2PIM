@@ -22,7 +22,7 @@ namespace Core_Loggers {
 			std::map<const std::reference_wrapper<const Interfaces::ITargetName>, const std::reference_wrapper<const Interfaces::ITarget>>* const targets;
 
 		public:
-			bool addTarget(const Interfaces::ITargetName &targetName, const Interfaces::ITarget &target) override;
+			bool add(const Interfaces::ITargetName &targetName, const Interfaces::ITarget &target) override;
 			NamedTargets(std::map<const std::reference_wrapper<const Interfaces::ITargetName>, const std::reference_wrapper<const Interfaces::ITarget>>* targets);
 			NamedTargets();
 			~NamedTargets();

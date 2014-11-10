@@ -19,8 +19,8 @@ namespace Core_Loggers {
 			private:
 
 			public:
-				virtual const std::vector<std::reference_wrapper<const ILogger>>& getLevelLoggers(const LogLevel &logLevel) const = 0;
-				virtual void addLevelLogger(const LogLevel &logLevel, const ILogger &logger) = 0;
+				virtual const std::vector<std::reference_wrapper<const ILogger>>& getLoggers(const LogLevel &logLevel) const = 0;
+				virtual void add(const LogLevel &logLevel, const ILogger &logger) = 0;
 				~ILevelLoggers() {}
 		};
 	}
