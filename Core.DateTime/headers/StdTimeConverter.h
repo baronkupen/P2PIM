@@ -10,14 +10,15 @@
 
 #include <ctime>
 #include "StdTime.h"
+#include "IStdTimeConverter.h"
 
 namespace Core_DateTime {
-	class StdTimeConverter {
+	class StdTimeConverter : public Interfaces::IStdTimeConverter {
 		private:
-		const int StdBaseHour = 12;
+			const int StdBaseHour = 12;
 
 		public:
-		StdTime convertToStdTime(const tm *localTime) const;
+			StdTime convertToStdTime(const tm *localTime) const override;
 	};
 }
 
