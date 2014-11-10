@@ -14,8 +14,8 @@ namespace Common {
 			private:
 
 			public:
-			virtual void dispose() = 0;
-			virtual ~IDisposable() {}
+				virtual void dispose() = 0;
+				virtual ~IDisposable() {}
 		};
 	}
 }
