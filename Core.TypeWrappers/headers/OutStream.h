@@ -15,14 +15,14 @@
 namespace Core_TypeWrappers {
 	class OutStream : public Interfaces::IOutStream {
 		private:
-		std::ostream &stream;
+			std::ostream &stream;
 
 		public:
-		const IOutStream& operator<<(const char* message) const override;
-		const IOutStream& operator<<(const std::string &message) const override;
-		const IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const override;
-		explicit OutStream(std::ostream &stream);
-		~OutStream();
+			const IOutStream& operator<<(const char* message) const override;
+			const IOutStream& operator<<(const std::string &message) const override;
+			const IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const override;
+			explicit OutStream(std::ostream &stream);
+			~OutStream();
 	};
 }
 

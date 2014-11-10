@@ -18,10 +18,10 @@ namespace Core_TypeWrappers {
 			private:
 
 			public:
-			virtual const IOutStream& operator<<(const char* message) const = 0;
-			virtual const IOutStream& operator<<(const std::string &message) const = 0;
-			virtual const IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const = 0;
-			virtual ~IOutStream() {}
+				virtual const IOutStream& operator<<(const char* message) const = 0;
+				virtual const IOutStream& operator<<(const std::string &message) const = 0;
+				virtual const IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const = 0;
+				virtual ~IOutStream() {}
 		};
 	}
 }
