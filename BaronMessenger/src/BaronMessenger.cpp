@@ -17,6 +17,8 @@
 #include "LevelLoggers.h"
 #include "ILogManager.h"
 #include "LogManager.h"
+#include "IOutStreamFactory.h"
+#include "OutStreamFactory.h"
 #include <vector>
 #include <map>
 #include <iostream>
@@ -25,6 +27,9 @@
 
 int main(int argc, const char * argv[])
 {
+	//this line for testing
+	auto streamFactory = Core_TypeWrappers::OutStreamFactory();
+
 	Core_DateTime::StdTimeConverter timeConverter;
 	auto dateFormatter = Core_DateTime::StdDateTimeFormatter(timeConverter);
 	auto date = Core_DateTime::Date();
