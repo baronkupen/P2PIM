@@ -10,7 +10,7 @@
 #include "OutStreamFactory.h"
 #include <string>
 #include <ostream>
-#include <ofstream>
+#include <fstream>
 
 namespace Core_TypeWrappers {
 	const Interfaces::IOutStream* const OutStreamFactory::create(std::ostream &outstream) const {
