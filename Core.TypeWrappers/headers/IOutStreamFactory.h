@@ -18,7 +18,7 @@ namespace Core_TypeWrappers {
 			private:
 
 			public:
-				virtual const IOutStream* const create(const std::ostream &outstream) const = 0;
+				virtual const IOutStream* const create(std::ostream &outstream) const = 0;
 				virtual const IOutStream* const create(const std::string &filename) const = 0;
 				virtual ~IOutStreamFactory() {}
 		};
