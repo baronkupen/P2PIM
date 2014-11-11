@@ -22,7 +22,7 @@ namespace Core_TypeWrappers {
 			const Interfaces::IOutStream& operator<<(const std::string &message) const override;
 			const Interfaces::IOutStream& operator<<(std::ostream& (*func)(std::ostream&)) const override;
 			explicit OutStream(std::ostream &stream);
-			~OutStream();
+			virtual ~OutStream();
 	};
 }
 

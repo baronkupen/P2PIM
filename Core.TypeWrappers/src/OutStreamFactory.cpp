@@ -23,4 +23,8 @@ namespace Core_TypeWrappers {
 		
 		return create(*fileStream);
 	}
+
+	OutStreamFactory::~OutStreamFactory() {
+
+	}
 }
