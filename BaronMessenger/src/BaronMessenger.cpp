@@ -28,26 +28,26 @@
 int main(int argc, const char * argv[])
 {
 	//this line for testing
-	auto streamFactory = Core_TypeWrappers::OutStreamFactory();
+	Core_TypeWrappers::OutStreamFactory streamFactory;
 
 	Core_DateTime::StdTimeConverter timeConverter;
-	auto dateFormatter = Core_DateTime::StdDateTimeFormatter(timeConverter);
-	auto date = Core_DateTime::Date();
+	Core_DateTime::StdDateTimeFormatter dateFormatter(timeConverter);
+	Core_DateTime::Date date;
 
-	auto outstream = Core_TypeWrappers::OutStream(std::cout);
+	Core_TypeWrappers::OutStream outstream(std::cout);
 	
 	std::ofstream outFile;
 	outFile.open("log.txt");
 
-	auto filestream = Core_TypeWrappers::OutStream(outFile);
+	Core_TypeWrappers::OutStream filestream(outFile);
 
 	Core_Loggers::Interfaces::ILogger* logger = new Core_Loggers::Logger(outstream, date, dateFormatter);
 	Core_Loggers::Interfaces::ILogger* fileLogger = new Core_Loggers::Logger(filestream, date, dateFormatter);
 
-	auto traceLoggers = std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>();
+	std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> traceLoggers;
 	traceLoggers.push_back(std::cref(*logger));
 
-	auto debugLoggers = std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>();
+	std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>> debugLoggers;
 	debugLoggers.push_back(std::cref(*fileLogger));
 
 	auto loggerMap = new std::map<const Core_Loggers::LogLevel, std::vector<std::reference_wrapper<const Core_Loggers::Interfaces::ILogger>>> { 
@@ -55,8 +55,8 @@ int main(int argc, const char * argv[])
 		{Core_Loggers::LogLevel::Debug, debugLoggers },
 	};
 
-	auto levelLoggers = Core_Loggers::LevelLoggers(loggerMap);
-	auto logManager = Core_Loggers::LogManager(levelLoggers);
+	Core_Loggers::LevelLoggers levelLoggers(loggerMap);
+	Core_Loggers::LogManager logManager(levelLoggers);
 
 	logManager.log("This is a test.", Core_Loggers::LogLevel::Debug);
 	logManager.log("This is another test.", Core_Loggers::LogLevel::Trace);
