@@ -20,7 +20,7 @@ namespace Core_TypeWrappers {
 		public:
 			const Interfaces::IOutStream* const create(std::ostream &outstream) const override;
 			const Interfaces::IOutStream* const create(const std::string &filename) const override;
-			~OutStreamFactory();
+			virtual ~OutStreamFactory();
 	};
 }
 
