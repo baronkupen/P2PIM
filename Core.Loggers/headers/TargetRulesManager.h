@@ -21,7 +21,7 @@ namespace Core_Loggers {
 		public:
 			const ITargetConfig* const createConfig() const override;
 			TargetRulesManager(const INamedTargets &namedTargets);
-			~TargetRulesManager();
+			virtual ~TargetRulesManager();
 	};
 }
 

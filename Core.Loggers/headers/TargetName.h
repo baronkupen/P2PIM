@@ -23,7 +23,8 @@ namespace Core_Loggers {
 			bool operator==(const ITargetName &other) const override;
 			bool operator<(const ITargetName &other) const override;
 
-			TargetName(const std::string &name);
+			explicit TargetName(const std::string &name);
+			virtual ~TargetName() {}
 	};
 }
 
