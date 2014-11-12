@@ -17,16 +17,20 @@
 #include "LogManager.h"
 #include "IOutStreamFactory.h"
 #include "OutStreamFactory.h"
+#include "Target.h"
+#include <string>
 #include <vector>
 #include <map>
 #include <iostream>
 #include <fstream>
 #include <functional>
 
-int main(int argc, const char * argv[])
-{
+int main(int argc, const char * argv[]) {
 	//this line for testing
 	Core_TypeWrappers::OutStreamFactory streamFactory;
+	const Core_TypeWrappers::Interfaces::IOutStream* const outStream = streamFactory.create(std::cout);
+
+	Core_Loggers::Target target("test", outStream); 
 
 	Core_DateTime::StdTimeConverter timeConverter;
 	Core_DateTime::StdDateTimeFormatter dateFormatter(timeConverter);
