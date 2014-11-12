@@ -7,14 +7,17 @@
 
 #include "LogManager.h"
 #include "ILogger.h"
-#include "ILevelLoggers.h"
 #include "LogLevel.h"
 #include <string>
+#include <map>
+#include <vector>
+#include <functional>
+#include <exception>
 
 namespace Core_Loggers {
 
 	// protected
-	void Core_Loggers::LogManager::dispose(const bool &disposing) {
+	void LogManager::dispose(const bool &disposing) {
 		if (!disposed) {
 			if (disposing) {
 				// dispose resources
@@ -24,20 +27,35 @@ namespace Core_Loggers {
 		}
 	}
 
-	void Core_Loggers::LogManager::dispose() {
+	// public
+	void LogManager::dispose() {
 		dispose(true);
 	}
 
-	void Core_Loggers::LogManager::log(const std::string &message, const LogLevel &logLevel) const {
-		auto& loggers = levelLoggers.getLoggers(logLevel);
+	void LogManager::log(const std::string &message, const LogLevel &logLevel) const {
+		try {
+			auto& levelLoggers = loggers->at(logLevel);
 
-		for(auto &logger : loggers) {
-			auto &loggerRef = logger.get();
+			for(auto &logger : levelLoggers) {
+				auto &loggerRef = logger.get();
 
-			loggerRef.log(message, logLevel);
+				loggerRef.log(message, logLevel);
+			}
 		}
+		catch (const std::out_of_range &e) { }
 	}
 
-	Core_Loggers::LogManager::LogManager(const Interfaces::ILevelLoggers &levelLoggers) : levelLoggers(levelLoggers) {}
+	void LogManager::add(const LogLevel &logLevel, const Interfaces::ILogger &logger) {
+		std::pair<std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>::iterator, bool> emplaceStatus = loggers->emplace(logLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>());
+		
+		emplaceStatus.first->second.push_back(std::cref(logger));
+	}
 
+	LogManager::LogManager(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers) : loggers(loggers) {}
+	
+	LogManager::LogManager() : loggers(new std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>) {}
+	
+	LogManager::~LogManager() {
+		delete loggers;
+	}
 }

@@ -13,8 +13,6 @@
 #include "OutStream.h"
 #include "LogLevel.h"
 #include "ILogger.h"
-#include "ILevelLoggers.h"
-#include "LevelLoggers.h"
 #include "ILogManager.h"
 #include "LogManager.h"
 #include "IOutStreamFactory.h"
@@ -55,8 +53,7 @@ int main(int argc, const char * argv[])
 		{Core_Loggers::LogLevel::Debug, debugLoggers },
 	};
 
-	Core_Loggers::LevelLoggers levelLoggers(loggerMap);
-	Core_Loggers::LogManager logManager(levelLoggers);
+	Core_Loggers::LogManager logManager(loggerMap);
 
 	logManager.log("This is a test.", Core_Loggers::LogLevel::Debug);
 	logManager.log("This is another test.", Core_Loggers::LogLevel::Trace);

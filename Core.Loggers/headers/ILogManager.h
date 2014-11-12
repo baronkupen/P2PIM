@@ -9,6 +9,7 @@
 #define ILOGMANAGER_H_
 
 #include "ILogger.h"
+#include "LogLevel.h"
 
 namespace Core_Loggers {
 	namespace Interfaces {
@@ -16,6 +17,8 @@ namespace Core_Loggers {
 			private:
 
 			public:
+			     virtual void add(const LogLevel &logLevel, const ILogger &logger) = 0;
+				virtual ~ILogManager() {}
 		};
 	}
 }
