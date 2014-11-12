@@ -10,7 +10,7 @@
 #define ITARGETCONFIG_H_
 
 #include "LogLevel.h"
-#include "ITargetName.h"
+#include <string> 
 
 namespace Core_Loggers {
 	namespace Interfaces {
@@ -19,7 +19,8 @@ namespace Core_Loggers {
 				
 
 			public:	
-				virtual void appendConfig(const LogLevel &logLevel, const ITargetName &targetName) = 0;
+				virtual void appendConfig(const LogLevel &logLevel, const std::string &name) = 0;
+				virtual ~ITargetConfig() {}
 		};
 	}
 }

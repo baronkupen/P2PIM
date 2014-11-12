@@ -27,7 +27,7 @@ namespace Core_Loggers {
 
 			explicit LevelLoggers(std::map<const LogLevel, std::vector<std::reference_wrapper<const Interfaces::ILogger>>>* const loggers);
 			LevelLoggers();
-			~LevelLoggers();
+			virtual ~LevelLoggers();
 	};
 }
 

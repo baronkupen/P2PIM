@@ -21,7 +21,7 @@ namespace Core_Loggers {
 			public:
 				virtual const std::vector<std::reference_wrapper<const ILogger>>& getLoggers(const LogLevel &logLevel) const = 0;
 				virtual void add(const LogLevel &logLevel, const ILogger &logger) = 0;
-				~ILevelLoggers() {}
+				virtual ~ILevelLoggers() {}
 		};
 	}
 }
